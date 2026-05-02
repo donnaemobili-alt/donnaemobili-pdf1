@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF #1 — El Reset Diario · Donna e Mobili</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a1a; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    #root { width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+const { useState } = React;
+
+const TEAL = "#1C5F5A";
+const GOLD = "#C9A07A";
+const CREAM = "#FAF7F2";
+const TORTORA = "#A89B8C";
+const TEAL_DARK = "#163f3c";
+const WARM_WHITE = "#F5F0E8";
+
+const PAOLA_PHOTO = "data:image/jpeg;base64,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";
+
+const pages = [
+  "COVER",
+  "QUERIDA LECTORA",
+  "INTRODUCCIÓN",
+  "8 PROBLEMAS",
+  "PROBLEMA 1",
+  "PROBLEMA 2",
+  "MOTIVACIONAL",
+  "PLAN 8 DÍAS",
+  "CIERRE",
+  "CHECKLIST",
+  "CONTRAPORTADA",
+];
+
+// Paper texture
+const PaperTexture = ({ opacity = 0.03 }) => (
+  <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}>
+    <defs>
+      <filter id="paper">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+    </defs>
+    <rect width="100%" height="100%" filter="url(#paper)" opacity={opacity} />
+  </svg>
+);
+
+// Italian arch
+const Arch = ({ x, y, width, height, fill, opacity = 1 }) => (
+  <g transform={`translate(${x},${y})`} opacity={opacity}>
+    <rect x="0" y={height * 0.35} width={width} height={height * 0.65} fill={fill} />
+    <ellipse cx={width / 2} cy={height * 0.35} rx={width / 2} ry={height * 0.35} fill={fill} />
+  </g>
+);
+
+// ★ THE CHAIR-8 LOGO
+const ChairLogo = ({ size = 60, color = TEAL, shadowOpacity = 0.08, style = {} }) => (
+  <svg width={size} height={size * 1.35} viewBox="0 0 100 135" style={style}>
+    <ellipse cx="50" cy="128" rx="22" ry="4" fill={color} opacity={shadowOpacity} />
+    <ellipse cx="50" cy="28" rx="18" ry="19" fill="none" stroke={color} strokeWidth="4.5" />
+    <ellipse cx="50" cy="62" rx="22" ry="20" fill="none" stroke={color} strokeWidth="4.5" />
+    <line x1="32" y1="75" x2="28" y2="125" stroke={color} strokeWidth="4" strokeLinecap="round" />
+    <line x1="68" y1="75" x2="72" y2="125" stroke={color} strokeWidth="4" strokeLinecap="round" />
+    <line x1="40" y1="78" x2="38" y2="122" stroke={color} strokeWidth="3.5" strokeLinecap="round" opacity="0.6" />
+    <line x1="60" y1="78" x2="62" y2="122" stroke={color} strokeWidth="3.5" strokeLinecap="round" opacity="0.6" />
+  </svg>
+);
+
+// Tiny chair for watermarks
+const ChairWatermark = ({ size = 30, color = TEAL, opacity = 0.04, style = {} }) => (
+  <div style={{ opacity, ...style }}>
+    <ChairLogo size={size} color={color} shadowOpacity={0} />
+  </div>
+);
+
+// Diamond divider
+const Diamond = ({ width = 40 }) => (
+  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+    <div style={{ width, height: 0.6, background: `linear-gradient(90deg, transparent, ${GOLD})` }} />
+    <div style={{ width: 4, height: 4, background: GOLD, transform: "rotate(45deg)" }} />
+    <div style={{ width, height: 0.6, background: `linear-gradient(90deg, ${GOLD}, transparent)` }} />
+  </div>
+);
+
+// Gold hairline + label
+const SectionLabel = ({ text }) => (
+  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 7 }}>
+    <div style={{ width: 16, height: 0.5, background: TEAL }} />
+    <div style={{
+      fontFamily: "'Epilogue', sans-serif", fontSize: 7, fontWeight: 600,
+      letterSpacing: 3, color: TEAL, textTransform: "uppercase",
+    }}>{text}</div>
+  </div>
+);
+
+
+// ═══════════════════════════════════════
+// COVER
+// ═══════════════════════════════════════
+function CoverPage() {
+  return (
+    <div style={{ width: "100%", height: "100%", position: "relative", overflow: "hidden", background: TEAL_DARK }}>
+      <PaperTexture opacity={0.025} />
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "radial-gradient(ellipse at 70% 75%, rgba(196,116,90,0.1) 0%, transparent 50%), radial-gradient(ellipse at 30% 20%, rgba(28,95,90,0.4) 0%, transparent 60%)",
+      }} />
+
+      {/* Decorative arch right */}
+      <svg style={{ position: "absolute", bottom: 0, right: 20, width: 140, height: 280, opacity: 0.05 }} viewBox="0 0 140 280">
+        <Arch x={0} y={0} width={140} height={280} fill={CREAM} />
+      </svg>
+
+      {/* Top — provenance */}
+      <div style={{ position: "absolute", top: 28, width: "100%", textAlign: "center" }}>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 7, letterSpacing: 5, color: "rgba(201,160,122,0.5)", textTransform: "uppercase",
+        }}>
+          Donna e Mobili · Bergamo, Italia
+        </div>
+      </div>
+
+      {/* Gold hairline */}
+      <div style={{ position: "absolute", top: 48, left: "50%", transform: "translateX(-50%)", width: 40, height: 0.8, background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }} />
+
+      {/* Series */}
+      <div style={{ position: "absolute", top: 60, width: "100%", textAlign: "center" }}>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 8, letterSpacing: 4,
+          color: GOLD, textTransform: "uppercase",
+        }}>
+          Serie 8×8×8 · Guía N.° 1
+        </div>
+      </div>
+
+      {/* Main title */}
+      <div style={{ position: "absolute", top: "21%", width: "100%", textAlign: "center", padding: "0 20px" }}>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 15, fontWeight: 300, letterSpacing: 6, color: "rgba(250,247,242,0.4)",
+          textTransform: "uppercase", marginBottom: 12,
+        }}>
+          El sistema para
+        </div>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 52, fontWeight: 600, color: CREAM, lineHeight: 0.95, letterSpacing: -1,
+        }}>
+          Reset
+        </div>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 52, fontWeight: 600, color: GOLD, lineHeight: 0.95, letterSpacing: -1, fontStyle: "italic",
+        }}>
+          Diario
+        </div>
+
+        <div style={{ margin: "20px 0 14px" }}><Diamond /></div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 13, fontStyle: "italic", color: "rgba(250,247,242,0.6)",
+          lineHeight: 1.5, maxWidth: 250, margin: "0 auto",
+        }}>
+          La guía práctica para mantener
+          <br />el orden en casa. Cada día.
+        </div>
+      </div>
+
+      {/* 8×8×8 pills */}
+      <div style={{ position: "absolute", bottom: "25%", width: "100%", display: "flex", justifyContent: "center", gap: 6 }}>
+        {["8 Problemas", "8 Soluciones", "8 Días"].map((t, i) => (
+          <div key={i} style={{
+            padding: "5px 12px", borderRadius: 20,
+            border: `0.6px solid rgba(201,160,122,0.3)`,
+            fontFamily: "'Epilogue', sans-serif", fontSize: 7.5,
+            letterSpacing: 1.5, color: "rgba(201,160,122,0.7)", textTransform: "uppercase",
+          }}>
+            {t}
+          </div>
+        ))}
+      </div>
+
+      {/* ★ CHAIR LOGO */}
+      <div style={{ position: "absolute", bottom: "8%", width: "100%", display: "flex", justifyContent: "center" }}>
+        <ChairLogo size={38} color={GOLD} shadowOpacity={0.15} />
+      </div>
+
+      {/* Bottom brand */}
+      <div style={{
+        position: "absolute", bottom: 0, width: "100%", padding: "10px 0 14px",
+        borderTop: `0.5px solid rgba(201,160,122,0.15)`, textAlign: "center",
+      }}>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 11, fontStyle: "italic", color: GOLD, marginBottom: 2,
+        }}>
+          el orden que cabe en tu vida.
+        </div>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7,
+          color: "rgba(250,247,242,0.3)", letterSpacing: 2,
+        }}>
+          PARA LAS QUE VIVEN EN CASAS REALES · DONNAEMOBILI.COM
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// QUERIDA LECTORA
+// ═══════════════════════════════════════
+function QueridaPage() {
+  return (
+    <div style={{ width: "100%", height: "100%", background: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+      <PaperTexture opacity={0.035} />
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 80% 30%, rgba(201,160,122,0.08) 0%, transparent 60%)" }} />
+
+      <ChairWatermark size={50} color={TEAL} opacity={0.035} style={{ position: "absolute", top: 25, right: 22 }} />
+      <div style={{ width: "100%", height: 3, background: `linear-gradient(90deg, ${TEAL}, ${GOLD})` }} />
+
+      <div style={{ padding: "28px 30px 0" }}>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 4,
+          color: TORTORA, textTransform: "uppercase", marginBottom: 20,
+        }}>Carta de Paola</div>
+
+        <div style={{
+          position: "absolute", top: 20, left: -5,
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 180, fontWeight: 300, color: "rgba(28,95,90,0.03)", lineHeight: 1, userSelect: "none",
+        }}>Q</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 18, fontWeight: 500, fontStyle: "italic", color: TEAL,
+          lineHeight: 1.35, marginBottom: 6, position: "relative",
+        }}>
+          Una casa en orden
+          <br />no se limpia de una vez.
+        </div>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 18, fontWeight: 500, fontStyle: "italic", color: GOLD,
+          lineHeight: 1.35, marginBottom: 16,
+        }}>
+          Se sostiene, cada día.
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
+          <div style={{ width: 30, height: 0.8, background: GOLD }} />
+          <div style={{ width: 3, height: 3, background: GOLD, transform: "rotate(45deg)" }} />
+        </div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 14, fontWeight: 600, color: TEAL_DARK, marginBottom: 14,
+        }}>Querida lectora,</div>
+
+        {[
+          "Esta guía nació de una casa real: con trabajo, familia y una semana que siempre parece demasiado corta.",
+          "El orden en casa no se consigue de una vez. Se mantiene, poco a poco, con gestos pequeños que se repiten.",
+          "El sistema 8×8×8 que encontrarás aquí parte de 8 problemas reales, ofrece 8 soluciones concretas y propone 8 días para integrarlas. Sin perfección. Sin prisa.",
+        ].map((p, i) => (
+          <div key={i} style={{
+            fontFamily: "'Epilogue', sans-serif", fontSize: 9.5,
+            lineHeight: 1.75, color: "#3a4a48", marginBottom: 10, fontWeight: 300,
+          }}>{p}</div>
+        ))}
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 13, fontStyle: "italic", color: GOLD, marginTop: 14,
+        }}>Con afecto, Paola.</div>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 2,
+          color: TORTORA, marginTop: 4,
+        }}>DALLA LOMBARDIA, CON AMORE</div>
+      </div>
+
+      <div style={{
+        position: "absolute", bottom: 20, right: 28,
+        display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
+      }}>
+        <div style={{
+          width: 56, height: 56, borderRadius: "50%",
+          border: `2px solid ${GOLD}`,
+          background: `linear-gradient(135deg, ${TEAL_DARK}, ${TEAL})`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          overflow: "hidden",
+        }}>
+          <img src={PAOLA_PHOTO} alt="Paola" style={{
+            width: "100%", height: "100%", objectFit: "cover",
+          }} />
+        </div>
+      </div>
+
+      <div style={{
+        position: "absolute", bottom: 6, left: 30,
+        fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA,
+      }}>© Paola Berrini · Donna e Mobili · donnaemobili.com</div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// INTRODUCCIÓN
+// ═══════════════════════════════════════
+function IntroPage() {
+  return (
+    <div style={{ width: "100%", height: "100%", background: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+      <PaperTexture opacity={0.03} />
+      <ChairWatermark size={40} color={TORTORA} opacity={0.025} style={{ position: "absolute", top: 20, right: 20 }} />
+
+      <div style={{ width: "100%", height: 3, background: `linear-gradient(90deg, ${TEAL}, ${GOLD})` }} />
+
+      <div style={{ padding: "24px 30px 0" }}>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 4,
+          color: TORTORA, textTransform: "uppercase", marginBottom: 16,
+        }}>Introducción</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 22, fontWeight: 600, color: TEAL, marginBottom: 4,
+        }}>El orden empieza hoy.</div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 18 }}>
+          <div style={{ width: 30, height: 0.8, background: GOLD }} />
+          <div style={{ width: 3, height: 3, background: GOLD, transform: "rotate(45deg)" }} />
+        </div>
+
+        {[
+          "Una casa no se desordena de golpe. Se desordena en capas.",
+          "La cama sin hacer al levantarse. La cocina que se cierra tarde. La ropa que acaba en la silla porque no hay un sitio mejor. Cada cosa pequeña que se deja para después suma.",
+          "El reset diario no es limpiar. Es mantener. Es decidir, cada día, que la casa no se acumula.",
+          "No necesitas un sistema perfecto. Necesitas uno que puedas repetir: flexible, concreto y pensado para los días normales, no para los ideales.",
+          "Ocho problemas. Ocho soluciones. Ocho días para convertirlos en hábito.",
+        ].map((p, i) => (
+          <div key={i} style={{
+            fontFamily: "'Epilogue', sans-serif", fontSize: 9.5,
+            lineHeight: 1.75, color: "#3a4a48", marginBottom: 10, fontWeight: 300,
+          }}>{p}</div>
+        ))}
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 14, fontWeight: 600, fontStyle: "italic", color: TEAL, marginTop: 14,
+        }}>Porque una casa ordenada no se limpia de una vez. Se sostiene, un poco, cada día.</div>
+      </div>
+
+      <div style={{ position: "absolute", bottom: 12, left: 30 }}>
+        <ChairLogo size={14} color={TORTORA} shadowOpacity={0} />
+      </div>
+      <div style={{
+        position: "absolute", bottom: 8, left: 52, right: 28,
+        display: "flex", justifyContent: "space-between",
+        borderTop: `0.5px solid rgba(168,155,140,0.15)`, paddingTop: 6,
+      }}>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>© Paola Berrini · Donna e Mobili</span>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>3</span>
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// 8 PROBLEMAS — INDEX
+// ═══════════════════════════════════════
+function ProblemasIndex() {
+  const problemas = [
+    "La cama sin hacer que arrastra el caos al resto del día",
+    "La cocina que nunca queda limpia del todo",
+    "La ropa acumulada en sillas, suelos y esquinas",
+    "Las superficies llenas de objetos sin lugar fijo",
+    "El baño que se ensucia más rápido de lo que se limpia",
+    "Las entradas y pasillos convertidos en almacén",
+    "El desorden mental: no saber por dónde empezar",
+    "La vuelta al caos después de haber ordenado",
+  ];
+  return (
+    <div style={{ width: "100%", height: "100%", background: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+      <PaperTexture opacity={0.03} />
+      <div style={{ width: "100%", height: 3, background: `linear-gradient(90deg, ${TEAL}, ${GOLD})` }} />
+
+      <div style={{ padding: "22px 28px 0" }}>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 4,
+          color: TORTORA, textTransform: "uppercase", marginBottom: 6,
+        }}>Índice de problemas</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 22, fontWeight: 600, color: TEAL, marginBottom: 4,
+        }}>8 Problemas Reales</div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+          <div style={{ width: 30, height: 0.8, background: GOLD }} />
+          <div style={{ width: 3, height: 3, background: GOLD, transform: "rotate(45deg)" }} />
+        </div>
+
+        {problemas.map((p, i) => (
+          <div key={i} style={{
+            display: "flex", alignItems: "flex-start", gap: 12, marginBottom: 2,
+            padding: "7px 0",
+            borderBottom: i < 7 ? `0.5px solid rgba(168,155,140,0.15)` : "none",
+          }}>
+            <div style={{
+              width: 22, height: 22, borderRadius: "50%",
+              background: "transparent",
+              border: `1px solid rgba(28,95,90,0.2)`,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 12, fontWeight: 600, color: TEAL, flexShrink: 0,
+            }}>{i + 1}</div>
+            <div style={{
+              fontFamily: "'Epilogue', sans-serif", fontSize: 9, fontWeight: 300,
+              color: TEAL_DARK, lineHeight: 1.5, paddingTop: 3,
+            }}>{p}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ position: "absolute", bottom: 12, left: 28 }}>
+        <ChairLogo size={14} color={TORTORA} shadowOpacity={0} />
+      </div>
+      <div style={{
+        position: "absolute", bottom: 8, left: 52, right: 28,
+        display: "flex", justifyContent: "space-between",
+        borderTop: `0.5px solid rgba(168,155,140,0.15)`, paddingTop: 6,
+      }}>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>© Paola Berrini · Donna e Mobili</span>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>4</span>
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// PROBLEM PAGE (reusable)
+// ═══════════════════════════════════════
+function ProblemPageTemplate({ num, titulo1, titulo2, problema, solucion, casoNombre, casoTexto, pageNum }) {
+  return (
+    <div style={{ width: "100%", height: "100%", background: "#FFFFFF", position: "relative", overflow: "hidden" }}>
+      <PaperTexture opacity={0.02} />
+
+      {/* Header */}
+      <div style={{ background: TEAL, position: "relative", overflow: "hidden", height: 75 }}>
+        <svg style={{ position: "absolute", right: 10, top: -20, width: 80, height: 95, opacity: 0.08 }} viewBox="0 0 80 95">
+          <Arch x={0} y={0} width={80} height={95} fill={CREAM} />
+        </svg>
+        <div style={{ padding: "12px 28px 0", display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+          <div style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 40, fontWeight: 700, color: GOLD, lineHeight: 1,
+          }}>{num}</div>
+          <div style={{ textAlign: "right" }}>
+            <div style={{
+              fontFamily: "'Epilogue', sans-serif", fontSize: 6.5,
+              letterSpacing: 3, color: "rgba(250,247,242,0.45)", textTransform: "uppercase",
+            }}>Problema {num} de 8</div>
+            <div style={{
+              fontFamily: "'Epilogue', sans-serif", fontSize: 6.5,
+              letterSpacing: 2, color: "rgba(201,160,122,0.6)", textTransform: "uppercase", marginTop: 2,
+            }}>Serie 8×8×8</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Title */}
+      <div style={{ padding: "16px 28px 14px", borderBottom: `0.5px solid rgba(168,155,140,0.2)` }}>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 19, fontWeight: 600, color: TEAL_DARK, lineHeight: 1.2,
+        }}>{titulo1}</div>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 19, fontWeight: 600, color: TEAL_DARK, lineHeight: 1.2, fontStyle: "italic",
+        }}>{titulo2}</div>
+      </div>
+
+      {/* Content */}
+      <div style={{ padding: "14px 28px 0", overflow: "hidden" }}>
+        <div style={{ marginBottom: 14 }}>
+          <SectionLabel text="El problema" />
+          <div style={{
+            fontFamily: "'Epilogue', sans-serif", fontSize: 9, lineHeight: 1.75,
+            color: "#3a4a48", fontWeight: 300, paddingLeft: 24,
+          }}>{problema}</div>
+        </div>
+
+        <div style={{ marginBottom: 14 }}>
+          <SectionLabel text="La solución" />
+          <div style={{ paddingLeft: 24 }}>
+            {solucion.map((s, i) => (
+              <div key={i} style={{
+                fontFamily: "'Epilogue', sans-serif", fontSize: 9,
+                lineHeight: 1.5, color: "#3a4a48", fontWeight: 300,
+                marginBottom: 3, display: "flex", gap: 8,
+              }}>
+                <span style={{ color: GOLD, fontSize: 10, marginTop: -1 }}>◆</span>
+                <span>{s}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Caso Real */}
+        <div style={{
+          background: `linear-gradient(145deg, ${WARM_WHITE}, rgba(201,160,122,0.06))`,
+          borderLeft: `2.5px solid ${GOLD}`, padding: "12px 16px",
+          borderRadius: "0 8px 8px 0", position: "relative",
+        }}>
+          <svg style={{ position: "absolute", top: 8, right: 12, width: 18, height: 30, opacity: 0.06 }} viewBox="0 0 18 30">
+            <Arch x={0} y={0} width={18} height={30} fill={GOLD} />
+          </svg>
+          <div style={{
+            fontFamily: "'Epilogue', sans-serif", fontSize: 6.5, fontWeight: 600,
+            letterSpacing: 2.5, color: GOLD, textTransform: "uppercase", marginBottom: 6,
+          }}>Un caso real · {casoNombre}</div>
+          <div style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 10.5, fontStyle: "italic", lineHeight: 1.6, color: "#4a5a58",
+          }}>«{casoTexto}»</div>
+        </div>
+      </div>
+
+      <div style={{ position: "absolute", bottom: 12, left: 28 }}>
+        <ChairLogo size={14} color={TORTORA} shadowOpacity={0} />
+      </div>
+      <div style={{
+        position: "absolute", bottom: 8, left: 52, right: 28,
+        display: "flex", justifyContent: "space-between",
+        borderTop: `0.5px solid rgba(168,155,140,0.15)`, paddingTop: 6,
+      }}>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>© Paola Berrini · Donna e Mobili</span>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>{pageNum}</span>
+      </div>
+    </div>
+  );
+}
+
+function Problem1() {
+  return <ProblemPageTemplate
+    num="1"
+    titulo1="La cama sin hacer"
+    titulo2="que arrastra el caos"
+    problema="No se trata de estética. Una cama sin hacer actúa como señal visual de que el día todavía no ha empezado. Ese desorden se extiende: si la habitación está caótica, el salón puede esperar, la cocina también. Todo se aplaza. El problema no es la cama — es lo que activa."
+    solucion={[
+      "Haz la cama en menos de tres minutos.",
+      "Solo hay que estirar el edredón, colocar las almohadas.",
+      "No tiene que ser perfecto. Tiene que estar hecho.",
+      "Un gesto de dos minutos cambia el tono de todo el día.",
+    ]}
+    casoNombre="Marta"
+    casoTexto="Empezó a hacer la cama cada mañana un martes cualquiera, sin motivación especial. A los cinco días notó que también recogía la cocina antes de salir. No había planeado nada — la inercia hizo el resto."
+    pageNum="5"
+  />;
+}
+
+function Problem2() {
+  return <ProblemPageTemplate
+    num="2"
+    titulo1="La cocina que nunca"
+    titulo2="queda limpia del todo"
+    problema="El problema real de la cocina no es la suciedad, sino el momento en que se limpia. Si se deja para después de cenar cuando ya no hay energía, no se hace. Si se deja para mañana, se acumula. La cocina funciona cuando tiene un cierre claro al final del día."
+    solucion={[
+      "Establece un reset de cocina de diez minutos cada noche.",
+      "Platos recogidos, fregadero vacío, encimera limpia.",
+      "Solo eso. Nada más.",
+      "Lo que se cierra cada noche no se acumula.",
+    ]}
+    casoNombre="Rosa"
+    casoTexto="Nunca lograba tener la cocina lista. Empezó con una sola regla: fregadero vacío antes de dormir. Solo eso. En dos semanas la cocina empezó a mantenerse sola — porque el punto de partida cada mañana era diferente."
+    pageNum="6"
+  />;
+}
+
+
+// ═══════════════════════════════════════
+// MOTIVACIONAL
+// ═══════════════════════════════════════
+function MotivacionalPage() {
+  return (
+    <div style={{
+      width: "100%", height: "100%", position: "relative", overflow: "hidden",
+      background: TEAL_DARK, display: "flex", flexDirection: "column",
+      justifyContent: "center", alignItems: "center",
+    }}>
+      <PaperTexture opacity={0.02} />
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "radial-gradient(ellipse at 50% 50%, rgba(28,95,90,0.5) 0%, transparent 70%), radial-gradient(ellipse at 80% 80%, rgba(196,116,90,0.08) 0%, transparent 40%)",
+      }} />
+
+      <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} viewBox="0 0 380 540">
+        <Arch x={140} y={-30} width={100} height={200} fill={CREAM} opacity={0.025} />
+        <Arch x={-20} y={350} width={50} height={100} fill={GOLD} opacity={0.04} />
+        <Arch x={320} y={380} width={40} height={80} fill={GOLD} opacity={0.03} />
+      </svg>
+
+      <div style={{ textAlign: "center", position: "relative", zIndex: 1, padding: "0 36px" }}>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 5,
+          color: "rgba(201,160,122,0.4)", textTransform: "uppercase", marginBottom: 36,
+        }}>Serie 8×8×8 · Donna e Mobili</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 32, fontWeight: 400, fontStyle: "italic", color: CREAM, lineHeight: 1.2, marginBottom: 6,
+        }}>Un gesto</div>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 32, fontWeight: 400, fontStyle: "italic", color: GOLD, lineHeight: 1.2, marginBottom: 6,
+        }}>por día,</div>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 32, fontWeight: 400, fontStyle: "italic", color: CREAM, lineHeight: 1.2,
+        }}>sin perfección.</div>
+
+        <div style={{ margin: "28px 0" }}><Diamond width={30} /></div>
+
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 9.5,
+          color: "rgba(250,247,242,0.4)", lineHeight: 1.9, fontWeight: 300,
+        }}>
+          Sin saltarse días. Empieza cuando quieras.
+          <br />Un reset. Un día. Ya es suficiente.
+        </div>
+
+        <div style={{ margin: "32px auto 0", display: "flex", justifyContent: "center" }}>
+          <ChairLogo size={48} color={GOLD} shadowOpacity={0.2} />
+        </div>
+
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 2,
+          color: "rgba(250,247,242,0.2)", marginTop: 12,
+        }}>BERGAMO · ITALIA</div>
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// PLAN 8 DÍAS
+// ═══════════════════════════════════════
+function PlanPage() {
+  const plan = [
+    { n: "1", title: "Haz la cama", desc: "Al levantarte, cada mañana", time: "3 min" },
+    { n: "2", title: "Cierra la cocina", desc: "Fregadero vacío antes de dormir", time: "10 min" },
+    { n: "3", title: "Resuelve la ropa", desc: "Gancho o cesta de medio uso", time: "5 min" },
+    { n: "4", title: "Vacía una superficie", desc: "Una sola, completa", time: "15 min" },
+    { n: "5", title: "Reset del baño", desc: "Trapo al lavabo cada mañana", time: "2 min" },
+    { n: "6", title: "Pon límites a la entrada", desc: "2 zapatos, 1 gancho, 0 bolsas", time: "10 min" },
+    { n: "7", title: "Una tarea de 10 minutos", desc: "Solo una, con temporizador", time: "10 min" },
+    { n: "8", title: "Tu reset diario completo", desc: "Combina todo en 15 minutos", time: "15 min" },
+  ];
+
+  return (
+    <div style={{ width: "100%", height: "100%", background: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+      <PaperTexture opacity={0.03} />
+      <ChairWatermark size={50} color={TEAL} opacity={0.03} style={{ position: "absolute", bottom: 30, left: 18 }} />
+
+      <div style={{ width: "100%", height: 3, background: `linear-gradient(90deg, ${TEAL}, ${GOLD})` }} />
+
+      <div style={{ padding: "22px 28px 0" }}>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 4,
+          color: TORTORA, textTransform: "uppercase", marginBottom: 6,
+        }}>Tu plan personal</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 22, fontWeight: 600, color: TEAL, marginBottom: 4,
+        }}>Plan de 8 Días</div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 18 }}>
+          <div style={{ width: 30, height: 0.8, background: GOLD }} />
+          <div style={{ width: 3, height: 3, background: GOLD, transform: "rotate(45deg)" }} />
+        </div>
+
+        {plan.map((item, i) => (
+          <div key={i} style={{
+            display: "flex", alignItems: "center", gap: 12, marginBottom: 2,
+            padding: "7px 0",
+            borderBottom: i < 7 ? `0.5px solid rgba(168,155,140,0.15)` : "none",
+          }}>
+            <div style={{
+              width: 24, height: 24, borderRadius: "50%",
+              background: i === 7 ? TEAL : "transparent",
+              border: `1px solid ${i === 7 ? TEAL : "rgba(28,95,90,0.2)"}`,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 12, fontWeight: 600,
+              color: i === 7 ? CREAM : TEAL, flexShrink: 0,
+            }}>{item.n}</div>
+            <div style={{ flex: 1 }}>
+              <div style={{
+                fontFamily: "'Epilogue', sans-serif", fontSize: 9.5, fontWeight: 500, color: TEAL_DARK,
+              }}>{item.title}</div>
+              <div style={{
+                fontFamily: "'Epilogue', sans-serif", fontSize: 8, fontWeight: 300, color: TORTORA,
+              }}>{item.desc}</div>
+            </div>
+            <div style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 11, fontStyle: "italic", color: GOLD, flexShrink: 0,
+            }}>{item.time}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{
+        position: "absolute", bottom: 20, left: 28, right: 28,
+        padding: "10px 14px", background: `rgba(28,95,90,0.04)`, borderRadius: 6,
+      }}>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 10, fontStyle: "italic", color: TEAL, textAlign: "center",
+        }}>
+          El día 8 es tu primera rutina completa.
+          <br />Repite. Ajusta. No juzgues.
+        </div>
+      </div>
+
+      <div style={{
+        position: "absolute", bottom: 6, left: 28,
+        fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA,
+      }}>© Paola Berrini · Donna e Mobili · donnaemobili.com</div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// CIERRE
+// ═══════════════════════════════════════
+function CierrePage() {
+  return (
+    <div style={{ width: "100%", height: "100%", background: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+      <PaperTexture opacity={0.035} />
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 20% 70%, rgba(201,160,122,0.06) 0%, transparent 50%)" }} />
+
+      <ChairWatermark size={45} color={TEAL} opacity={0.03} style={{ position: "absolute", top: 22, right: 22 }} />
+      <div style={{ width: "100%", height: 3, background: `linear-gradient(90deg, ${TEAL}, ${GOLD})` }} />
+
+      <div style={{ padding: "28px 30px 0" }}>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 4,
+          color: TORTORA, textTransform: "uppercase", marginBottom: 6,
+        }}>Antes de terminar</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 20, fontWeight: 600, color: TEAL, marginBottom: 4, lineHeight: 1.3,
+        }}>Y ahora... una última cosa</div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+          <div style={{ width: 30, height: 0.8, background: GOLD }} />
+          <div style={{ width: 3, height: 3, background: GOLD, transform: "rotate(45deg)" }} />
+        </div>
+
+        {[
+          "Has llegado al final de esta guía con ocho problemas menos en la cabeza y ocho gestos concretos en la mano.",
+          "No tienes que hacer todo a la vez. No tienes que ser perfecta. Solo tienes que empezar — y repetir.",
+          "El reset diario no es un método de limpieza profunda. Es una decisión que se toma cada día: no dejar que el caos se acumule.",
+          "Empieza por una sola cosa esta semana. La cama. La cocina. Una superficie. Solo eso.",
+          "Cuando repitas ese gesto durante ocho días seguidos, algo cambia. No la casa — tú. Y entonces la casa te sigue.",
+        ].map((p, i) => (
+          <div key={i} style={{
+            fontFamily: "'Epilogue', sans-serif", fontSize: 9.5,
+            lineHeight: 1.75, color: "#3a4a48", marginBottom: 8, fontWeight: 300,
+          }}>{p}</div>
+        ))}
+
+        <div style={{
+          background: `linear-gradient(145deg, rgba(28,95,90,0.06), rgba(201,160,122,0.04))`,
+          borderLeft: `2.5px solid ${TEAL}`, padding: "12px 16px",
+          borderRadius: "0 8px 8px 0", marginTop: 14,
+        }}>
+          <div style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 12, fontStyle: "italic", color: TEAL, lineHeight: 1.6, textAlign: "center",
+          }}>
+            «Una casa ordenada no se limpia de una vez.
+            <br/>Se mantiene, un poco, cada día.»
+          </div>
+        </div>
+
+        <div style={{ textAlign: "right", marginTop: 14 }}>
+          <div style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 12, fontStyle: "italic", color: GOLD,
+          }}>Grazie mille.</div>
+          <div style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 11, fontStyle: "italic", color: TORTORA, marginTop: 2,
+          }}>E buona trasformazione, dentro e fuori.</div>
+          <div style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 12, fontStyle: "italic", color: TEAL_DARK, marginTop: 2,
+          }}>— Paola.</div>
+        </div>
+      </div>
+
+      <div style={{ position: "absolute", bottom: 12, left: 28 }}>
+        <ChairLogo size={14} color={TORTORA} shadowOpacity={0} />
+      </div>
+      <div style={{
+        position: "absolute", bottom: 8, left: 52, right: 28,
+        display: "flex", justifyContent: "space-between",
+        borderTop: `0.5px solid rgba(168,155,140,0.15)`, paddingTop: 6,
+      }}>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>© Paola Berrini · Donna e Mobili</span>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>15</span>
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// CHECKLIST
+// ═══════════════════════════════════════
+function ChecklistPage() {
+  const items = [
+    "Hice la cama al levantarme.",
+    "Cerré la cocina antes de acostarme.",
+    "Resolví el problema de la ropa del día.",
+    "Vacié al menos una superficie.",
+    "Hice el reset del baño en dos minutos.",
+    "Mantuve la entrada libre y ordenada.",
+    "Hice una sola tarea de diez minutos.",
+    "Combiné todos los gestos en mi reset.",
+    "Repetí la rutina sin saltarme ningún día.",
+    "Revisé el checklist al finalizar los 8 días.",
+  ];
+  return (
+    <div style={{ width: "100%", height: "100%", background: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+      <PaperTexture opacity={0.03} />
+      <div style={{ width: "100%", height: 3, background: `linear-gradient(90deg, ${TEAL}, ${GOLD})` }} />
+
+      <div style={{ padding: "22px 28px 0" }}>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7, letterSpacing: 4,
+          color: TORTORA, textTransform: "uppercase", marginBottom: 6,
+        }}>Tu progreso</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 22, fontWeight: 600, color: TEAL, marginBottom: 4,
+        }}>Checklist del Reset</div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+          <div style={{ width: 30, height: 0.8, background: GOLD }} />
+          <div style={{ width: 3, height: 3, background: GOLD, transform: "rotate(45deg)" }} />
+        </div>
+
+        {items.map((item, i) => (
+          <div key={i} style={{
+            display: "flex", alignItems: "center", gap: 10, marginBottom: 2,
+            padding: "6px 0",
+            borderBottom: i < 9 ? `0.5px solid rgba(168,155,140,0.12)` : "none",
+          }}>
+            <div style={{
+              width: 14, height: 14, borderRadius: 3,
+              border: `1.2px solid rgba(28,95,90,0.25)`,
+              flexShrink: 0,
+            }} />
+            <div style={{
+              fontFamily: "'Epilogue', sans-serif", fontSize: 9,
+              color: "#3a4a48", fontWeight: 300, lineHeight: 1.4,
+            }}>{item}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ position: "absolute", bottom: 12, left: 28 }}>
+        <ChairLogo size={14} color={TORTORA} shadowOpacity={0} />
+      </div>
+      <div style={{
+        position: "absolute", bottom: 8, left: 52, right: 28,
+        display: "flex", justifyContent: "space-between",
+        borderTop: `0.5px solid rgba(168,155,140,0.15)`, paddingTop: 6,
+      }}>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>© Paola Berrini · Donna e Mobili</span>
+        <span style={{ fontFamily: "'Epilogue', sans-serif", fontSize: 6, color: TORTORA }}>16</span>
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// CONTRAPORTADA
+// ═══════════════════════════════════════
+function ContraportadaPage() {
+  return (
+    <div style={{
+      width: "100%", height: "100%", position: "relative", overflow: "hidden",
+      background: TEAL_DARK, display: "flex", flexDirection: "column",
+      justifyContent: "center", alignItems: "center",
+    }}>
+      <PaperTexture opacity={0.02} />
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "radial-gradient(ellipse at 50% 40%, rgba(28,95,90,0.4) 0%, transparent 60%)",
+      }} />
+
+      <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} viewBox="0 0 380 540">
+        <Arch x={120} y={-50} width={140} height={280} fill={CREAM} opacity={0.02} />
+      </svg>
+
+      <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 16, fontWeight: 600, color: GOLD, letterSpacing: 2,
+          marginBottom: 20,
+        }}>ERAN PROBLEMAS</div>
+
+        <div style={{ margin: "0 auto 24px" }}><Diamond width={30} /></div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 11, fontStyle: "italic", color: "rgba(250,247,242,0.5)",
+          lineHeight: 1.7, marginBottom: 28, maxWidth: 260,
+        }}>
+          Eran problemas de casas reales.
+          <br/>Ahora son gestos que se repiten.
+          <br/>Sin perfección. Con lo que tienes.
+        </div>
+
+        <ChairLogo size={44} color={GOLD} shadowOpacity={0.15} />
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 16, fontWeight: 500, color: CREAM, marginTop: 24, letterSpacing: 1,
+        }}>Donna e Mobili</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 11, fontStyle: "italic", color: GOLD, marginTop: 6,
+        }}>el orden que cabe en tu vida.</div>
+
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 8,
+          color: "rgba(250,247,242,0.25)", marginTop: 4, letterSpacing: 1,
+        }}>Para las que viven en casas reales.</div>
+
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7,
+          color: "rgba(250,247,242,0.15)", marginTop: 16, letterSpacing: 2,
+        }}>© PAOLA BERRINI · DONNAEMOBILI.COM · 2026</div>
+
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7,
+          color: "rgba(250,247,242,0.12)", marginTop: 6, letterSpacing: 2,
+        }}>UNA GUÍA PRÁCTICA PARA HOGARES REALES</div>
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════
+// MAIN VIEWER
+// ═══════════════════════════════════════
+const PAGE_COMPONENTS = [
+  CoverPage, QueridaPage, IntroPage, ProblemasIndex,
+  Problem1, Problem2, MotivacionalPage, PlanPage,
+  CierrePage, ChecklistPage, ContraportadaPage,
+];
+
+function PDF1MockupV3() {
+  const [current, setCurrent] = useState(0);
+
+  const designNotes = [
+    "Cover: logo sedia-8 in gold come hero. Arco italiano a destra. «El sistema para Reset Diario» — titolo bicolore cream+gold. Tre pill 8×8×8 in basso.",
+    "Querida lectora: la Q gigante come watermark. Tagline bicolore teal+gold. Foto reale di Paola con mate e laptop. Sedia-8 watermark in alto a destra. «Dalla Lombardia, con amore.»",
+    "Introducción: testo del fondamento — il reset non è limpiar, è mantener. Sedia-8 come footer mark. Stile editoriale pulito.",
+    "Índice 8 problemi: numeri in cerchio teal, testo a fianco. Design da sommario di libro italiano. Ogni problema è una pagina dedicata (P5–P12 nel PDF).",
+    "Problema 1: header teal con numero gold grande + arco. Titolo spezzato su due righe. El Problema / La Solución / Caso Real di Marta. Sedia-8 come firma in basso.",
+    "Problema 2: stessa struttura del P1 — template riutilizzabile per tutti e 8. Caso Real di Rosa. La cocina che non si chiude mai.",
+    "Motivazionale: sfondo teal_dark pieno. «Un gesto por día, sin perfección.» Sedia-8 in gold come elemento hero centrale. Archi decorativi multipli. BERGAMO · ITALIA.",
+    "Plan 8 días: 8 righe con cerchio numerato, titolo, descrizione e tempo. Il giorno 8 ha il cerchio pieno teal (rutina completa). Sedia watermark in basso.",
+    "Cierre: «Antes de terminar» — la lettera finale. Citazione in box teal. Firma trilingue: Grazie mille / E buona trasformazione / — Paola.",
+    "Checklist: 10 caselle vuote (da spuntare nel PDF stampato). Design minimalista. Stile lista da taccuino italiano.",
+    "Contraportada: «ERAN PROBLEMAS» in gold. Sedia-8 hero. Brand completo. Chiude il cerchio con la cover. NO foto — solo il logo.",
+  ];
+
+  return (
+    <div style={{
+      minHeight: "100vh", background: "#111",
+      display: "flex", flexDirection: "column", alignItems: "center",
+      padding: "16px 12px",
+    }}>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Epilogue:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+        rel="stylesheet"
+      />
+
+      {/* Header */}
+      <div style={{ textAlign: "center", marginBottom: 14 }}>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 6 }}>
+          <ChairLogo size={22} color={GOLD} shadowOpacity={0} />
+        </div>
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 14, color: GOLD, fontStyle: "italic", marginBottom: 2,
+        }}>PDF N.° 1 — El Reset Diario · Concept V3</div>
+        <div style={{
+          fontFamily: "'Epilogue', sans-serif", fontSize: 7,
+          color: "rgba(255,255,255,0.25)", letterSpacing: 3,
+        }}>DONNA E MOBILI · BERGAMO</div>
+      </div>
+
+      {/* Tabs */}
+      <div style={{
+        display: "flex", gap: 3, marginBottom: 14, flexWrap: "wrap", justifyContent: "center",
+        maxWidth: 400,
+      }}>
+        {pages.map((name, i) => (
+          <button key={i} onClick={() => setCurrent(i)} style={{
+            padding: "5px 10px", border: "none", borderRadius: 20,
+            background: current === i ? GOLD : "rgba(255,255,255,0.06)",
+            color: current === i ? TEAL_DARK : "rgba(255,255,255,0.4)",
+            fontSize: 7, fontWeight: 500, letterSpacing: 1, cursor: "pointer",
+            fontFamily: "'Epilogue', sans-serif", transition: "all 0.25s",
+          }}>
+            {name}
+          </button>
+        ))}
+      </div>
+
+      {/* Page viewer */}
+      <div style={{
+        width: 380, height: 540, borderRadius: 3, overflow: "hidden",
+        boxShadow: "0 25px 80px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(255,255,255,0.04)",
+        position: "relative",
+      }}>
+        {PAGE_COMPONENTS.map((Comp, i) => (
+          <div key={i} style={{
+            position: "absolute", inset: 0,
+            opacity: current === i ? 1 : 0,
+            transition: "opacity 0.5s ease",
+            pointerEvents: current === i ? "auto" : "none",
+          }}>
+            <Comp />
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation */}
+      <div style={{ display: "flex", gap: 16, marginTop: 14, alignItems: "center" }}>
+        <button onClick={() => setCurrent(p => Math.max(0, p - 1))} disabled={current === 0}
+          style={{
+            width: 34, height: 34, borderRadius: "50%",
+            border: `0.5px solid rgba(255,255,255,0.1)`, background: "transparent",
+            color: current === 0 ? "rgba(255,255,255,0.1)" : GOLD,
+            fontSize: 14, cursor: current === 0 ? "default" : "pointer",
+            display: "flex", alignItems: "center", justifyContent: "center",
+          }}>←</button>
+        <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 10, fontFamily: "'Epilogue', sans-serif" }}>
+          {current + 1} / {pages.length}
+        </span>
+        <button onClick={() => setCurrent(p => Math.min(pages.length - 1, p + 1))} disabled={current === pages.length - 1}
+          style={{
+            width: 34, height: 34, borderRadius: "50%",
+            border: `0.5px solid rgba(255,255,255,0.1)`, background: "transparent",
+            color: current === pages.length - 1 ? "rgba(255,255,255,0.1)" : GOLD,
+            fontSize: 14, cursor: current === pages.length - 1 ? "default" : "pointer",
+            display: "flex", alignItems: "center", justifyContent: "center",
+          }}>→</button>
+      </div>
+
+      {/* Design notes */}
+      <div style={{
+        marginTop: 16, maxWidth: 380, padding: "12px 16px",
+        background: "rgba(255,255,255,0.03)", borderRadius: 8,
+        border: "0.5px solid rgba(255,255,255,0.05)",
+      }}>
+        <div style={{ fontSize: 7, letterSpacing: 2, color: GOLD, textTransform: "uppercase", marginBottom: 6 }}>
+          Note di design — pagina {current + 1}
+        </div>
+        <div style={{ fontSize: 9, lineHeight: 1.6, color: "rgba(255,255,255,0.4)", fontFamily: "'Epilogue', sans-serif" }}>
+          {designNotes[current]}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<PDF1MockupV3 />);
+  </script>
+</body>
+</html>
